@@ -26,4 +26,21 @@ router.post("/upload-cv", async (req, res) => {
   }
 });
 
+// Get CV URL from settings
+router.get("/get-cv", async (req, res) => {
+  try {
+    const settings = await Settings.findOne();
+
+    if (!settings || !settings.cvUrl) {
+      return res.status(404).json({ error: "CV not found" });
+    }
+
+    res.status(200).json({ cvUrl: settings.cvUrl });
+  } catch (err) {
+    console.error("Error fetching CV:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+
 module.exports =  router;
