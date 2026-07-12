@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 
-const USERNAME = process.env.ADMIN_USERNAME || 'jimmythiz';
-const PASSWORD = process.env.ADMIN_PASSWORD || 'admin';
-const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
+const USERNAME = process.env.ADMIN_USERNAME;
+const PASSWORD = process.env.ADMIN_PASSWORD;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const login = (req, res) => {
   const { username, password } = req.body;
